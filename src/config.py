@@ -15,3 +15,10 @@ ALL_MEDS_COLS = ['metformin', 'repaglinide', 'nateglinide', 'chlorpropamide',
        'metformin-pioglitazone']
 KEPT_MEDS = [col for col in ALL_MEDS_COLS if col not in LOW_VARIANCE_MEDS]
 UNORDERED_CATS = ['gender', 'race', 'medical_specialty', 'payer_code'] + KEPT_MEDS
+
+ORDINAL_ORDER = {
+    'age': ['[0-10)', '[10-20)', '[20-30)', '[30-40)', '[40-50)', '[50-60)', '[60-70)',
+ '[70-80)', '[80-90)', '[90-100)'],
+    'max_glu_serum': ['Unknown', '>200', '>300', 'Norm'],
+    'A1Cresult': ['Unknown', 'Norm', '>7', '>8']
+}
