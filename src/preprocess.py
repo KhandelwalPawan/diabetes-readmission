@@ -6,7 +6,7 @@ from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 
 # load data
 
-def load_data(path):
+def load_data(path) -> pd.DataFrame:
 
     if not path.endswith('.csv'):
         raise ValueError(f"Invalid file type: {path}. Only .csv files are allowed!")
@@ -58,3 +58,15 @@ def encode_features(ordinal_cols: list, ordinal_order: dict, nominal_cols: list)
     ct.set_output('pandas')
 
     return ct
+
+def preprocess(filepath) -> pd.DataFrame:
+    
+    df = load_data(filepath)
+    df = drop_columns(df, config.COLS_TO_DROP + config.LOW_VARIANCE_MEDS)
+    df = drop_nulls(df, config.DROP_ROWS)
+    df = fill_nulls(df, config.FILL_WITH_UNKNOWN)
+    df = encode_target(df, config.TARGET_VARIABLE)
+    df = filter_leakage(df, config.LEAKAGE_CODES, config.LEAKAGE_COL)
+    df = binary_mapping(df, config.BINARY_CATS)
+
+    return df
