@@ -5,7 +5,7 @@ TARGET_VARIABLE = 'readmitted'
 LOW_VARIANCE_MEDS = ['repaglinide', 'nateglinide', 'chlorpropamide', 'acetohexamide', 'tolbutamide', 'acarbose', 'miglitol', 
                      'troglitazone', 'tolazamide', 'examide', 'citoglipton', 'glyburide-metformin', 'glipizide-metformin', 
                      'glimepiride-pioglitazone', 'metformin-rosiglitazone', 'metformin-pioglitazone']
-COLS_TO_DROP = ['weight', 'encounter_id', 'patient_nbr']
+COLS_TO_DROP = ['weight', 'encounter_id']
 
 # Rows to drop
 DROP_ROWS = ['race', 'diag_1', 'diag_2', 'diag_3']
@@ -28,7 +28,7 @@ ALL_MEDS_COLS = ['metformin', 'repaglinide', 'nateglinide', 'chlorpropamide',
        'glimepiride-pioglitazone', 'metformin-rosiglitazone',
        'metformin-pioglitazone']
 KEPT_MEDS = [col for col in ALL_MEDS_COLS if col not in LOW_VARIANCE_MEDS]
-UNORDERED_CATS = ['gender', 'race', 'medical_specialty', 'payer_code'] + KEPT_MEDS
+UNORDERED_CATS = ['gender', 'race', 'medical_specialty', 'payer_code', 'diag_1', 'diag_2', 'diag_3'] + KEPT_MEDS
 ORDINAL_ORDER = {
     'age': ['[0-10)', '[10-20)', '[20-30)', '[30-40)', '[40-50)', '[50-60)', '[60-70)',
  '[70-80)', '[80-90)', '[90-100)'],

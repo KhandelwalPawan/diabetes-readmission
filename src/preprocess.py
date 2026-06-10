@@ -12,7 +12,7 @@ def load_data(path) -> pd.DataFrame:
         raise ValueError(f"Invalid file type: {path}. Only .csv files are allowed!")
 
     try:
-        return pd.read_csv(path, na_values= ['?'])
+        return pd.read_csv(path, na_values= ['?'], low_memory= False)
     except FileNotFoundError:
         raise FileNotFoundError(f"File not found at location: {path}. Try again.")
     
@@ -50,12 +50,12 @@ def encode_features(ordinal_cols: list, ordinal_order: dict, nominal_cols: list)
     ct = ColumnTransformer(
         transformers= [
             ('ord', OrdinalEncoder(categories= ordinal_cats), ordinal_cols),
-            ('ohe', OneHotEncoder(sparse_output= False), nominal_cols)
+            ('ohe', OneHotEncoder(sparse_output= False, handle_unknown= 'ignore'), nominal_cols)
         ],
         remainder= 'passthrough'
     )
 
-    ct.set_output('pandas')
+    # ct.set_output('pandas')
 
     return ct
 
