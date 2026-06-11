@@ -6,7 +6,6 @@ import config
 from sklearn.metrics import precision_score, roc_auc_score, f1_score, recall_score
 
 readmission_data = preprocess('../data/diabetic_data.csv')
-print(readmission_data.shape)
 
 groups = readmission_data['patient_nbr']
 X = readmission_data.drop(columns= ['readmitted', 'patient_nbr'], axis= 1)
@@ -23,7 +22,7 @@ ct = encode_features(config.ORDERED_CATS, config.ORDINAL_ORDER, config.UNORDERED
 X_train = ct.fit_transform(X_train)
 X_test = ct.transform(X_test)
 
-rf = RandomForestClassifier(n_estimators= 100, class_weight= 'balanced', random_state= 42)
+rf = RandomForestClassifier(n_estimators= 100, class_weight= 'balanced', random_state= 42, max_depth= 10)
 rf.fit(X_train, y_train)
 
 y_pred = rf.predict(X_test)
