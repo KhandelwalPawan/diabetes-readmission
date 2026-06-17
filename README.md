@@ -53,19 +53,19 @@ venv\Scripts\activate
 ## How to run
 
 1. Run the `train.py` file from inside the `src` folder to run the model for the first time and then to see your mlflow dashboard run 
-`mlflow ui`
+```mlflow ui```
 
 2. To connect to the API and ingest live data into your model to get a prediction run this from inside `api` folder your terminal:
-`uvicorn main:app --reload`
+```uvicorn main:app --reload```
 
 ## Model Performance
 
 My current model has the following scores after version 1:
 
-Precision: 0.18, 
-Recall: 0.54, 
-F1: 0.27, 
-ROC-AUC: 0.61
+- Precision: 0.18, 
+- Recall: 0.54, 
+- F1: 0.27, 
+- ROC-AUC: 0.61
 
 ## Tech Stack
 
