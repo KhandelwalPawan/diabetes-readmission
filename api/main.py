@@ -5,8 +5,8 @@ from pydantic import BaseModel
 import mlflow
 import mlflow.sklearn
 import pandas as pd
-import preprocess
-import config
+from src import preprocess
+import src.config as config
 
 class PatientData(BaseModel):
     

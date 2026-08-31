@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import config
+import src.config as config
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 
