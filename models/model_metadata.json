@@ -1,0 +1,58 @@
+{
+  "run_id": "aad13808ed114096b0b130ae1184417e",
+  "trained_at": "2026-09-04T18:43:39.905585Z",
+  "features": [
+    "race",
+    "gender",
+    "age",
+    "admission_type_id",
+    "discharge_disposition_id",
+    "admission_source_id",
+    "time_in_hospital",
+    "payer_code",
+    "medical_specialty",
+    "num_lab_procedures",
+    "num_procedures",
+    "num_medications",
+    "number_outpatient",
+    "number_emergency",
+    "number_inpatient",
+    "number_diagnoses",
+    "max_glu_serum",
+    "A1Cresult",
+    "metformin",
+    "glimepiride",
+    "glipizide",
+    "glyburide",
+    "pioglitazone",
+    "rosiglitazone",
+    "insulin",
+    "change",
+    "diabetesMed"
+  ],
+  "metrics": {
+    "precision": 0.17838696861342868,
+    "recall": 0.5318329878590465,
+    "specificity": 0.6781072457000544,
+    "f1_score": 0.2671625139457047,
+    "roc_auc": 0.651916904659168,
+    "pr_auc": 0.20068907721905946,
+    "brier_score": 0.22112677275078738,
+    "true_positives": 1796,
+    "false_positives": 8272,
+    "true_negatives": 17426,
+    "false_negatives": 1581,
+    "predicted_positives": 10068,
+    "actual_positives": 3377
+  },
+  "hyperparameters": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "class_weight": "balanced",
+    "decision_threshold": 0.5
+  },
+  "sample_counts": {
+    "train_samples": 68031,
+    "test_samples": 29075
+  }
+}
